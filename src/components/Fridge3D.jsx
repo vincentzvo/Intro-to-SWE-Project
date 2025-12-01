@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Upload, X } from "lucide-react"
+import { X } from "lucide-react"
 
-export default function Fridge3D({ ingredients, onIngredientClick, onUpload }) {
+export default function Fridge3D({ ingredients, onIngredientClick }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleFridgeClick = () => { 
@@ -111,16 +111,7 @@ return (
           {ingredients.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
               <div className="text-gray-400 text-lg font-medium">Your fridge is empty!</div>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  onUpload?.()
-                }}
-                className="flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors shadow-lg"
-              >
-                <Upload className="w-5 h-5" />
-                Upload Ingredients
-              </button>
+              <div className="text-gray-500 text-sm">Click the camera button to add ingredients</div>
             </div>
           ) : (
             <>
